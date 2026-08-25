@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+  --border: #e2e8f0;
+  --success: #059669;
+  --danger: #dc2626;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  @apply antialiased;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  @apply rounded-xl shadow-sm;
+}
+
+.btn-accent {
+  background: var(--accent);
+  @apply rounded-lg px-4 py-2 text-sm font-medium text-white hover:opacity-90;
+}
+
+.tab {
+  color: var(--muted);
+  @apply rounded-lg px-4 py-2 text-sm font-medium;
+}
+
+.tab-active {
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  @apply shadow-sm;
+}
