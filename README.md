@@ -85,3 +85,8 @@ Employee/
 
 - First name, last name, email (required)
 - Department, position, salary (optional)
+
+
+## Development
+
+Employee search feature is currently being developed.
