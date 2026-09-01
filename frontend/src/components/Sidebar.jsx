@@ -39,19 +39,19 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
 
       {/* Sidebar Container (Slide-over on mobile, sticky on desktop) */}
       <aside
-        className={`fixed md:sticky top-0 left-0 z-50 h-screen w-64 bg-slate-900 text-slate-100 flex flex-col justify-between border-r border-slate-800 shrink-0 select-none transition-transform duration-300 ease-in-out ${
+        className={`fixed md:sticky top-0 left-0 z-50 h-screen w-64 bg-white text-slate-100 flex flex-col justify-between border-r border-slate-800 shrink-0 select-none transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         <div>
           {/* Brand Header */}
-          <div className="p-5 border-b border-slate-800 flex items-center justify-between">
-            <div className="flex items-center gap-3">
+          <div className="p-5 border-b border-slate-900 flex items-center justify-between">
+            <div className="flex items-center gap-3">  
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30">
                 W
               </div>
               <div>
-                <h1 className="text-lg font-black tracking-tight text-white leading-none">WorkPulse</h1>
+                <h1 className="text-lg font-black tracking-tight text-black leading-none">EmployeeHub</h1>
                 <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-wider">Enterprise Management</span>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
 
           {/* Navigation Section */}
           <nav className="px-3 py-2 space-y-1">
-            <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+            <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-indigo-600">
               Main Navigation
             </div>
             {navItems.map((item) => {
@@ -98,7 +98,7 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
                   className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl font-semibold text-sm transition-all text-left cursor-pointer ${
                     isActive
                       ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 shadow-sm'
-                      : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                      : 'text-indigo-500 hover:bg-slate-800/60 hover:text-slate-200'
                   }`}
                 >
                   <div className={`${isActive ? 'text-indigo-400' : 'text-slate-400'}`}>
