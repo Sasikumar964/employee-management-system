@@ -1,0 +1,51 @@
+services:
+  backend:
+    image: employee-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    environment:
+      DB_HOST: employee-mysql
+      DB_PORT: "3306"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - employee-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: employee-mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - employee-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - employee-network
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+    networks:
+      - employee-network
+
+volumes:
+  employee-mysql-data:
+    name: employee-mysql-data
+
+networks:
+  employee-network:
+    external: true
+    name: employee-network
