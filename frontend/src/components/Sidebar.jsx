@@ -39,7 +39,7 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
 
       {/* Sidebar Container (Slide-over on mobile, sticky on desktop) */}
       <aside
-        className={`fixed md:sticky top-0 left-0 z-50 h-screen w-64 bg-white text-slate-100 flex flex-col justify-between border-r border-slate-800 shrink-0 select-none transition-transform duration-300 ease-in-out ${
+        className={`fixed md:sticky top-0 left-0 z-50 h-screen w-64 bg-red-600 text-slate-100 flex flex-col justify-between border-r border-slate-800 shrink-0 select-none transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -47,7 +47,7 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
           {/* Brand Header */}
           <div className="p-5 border-b border-slate-900 flex items-center justify-between">
             <div className="flex items-center gap-3">  
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-red-700 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30">
                 W
               </div>
               <div>
@@ -97,7 +97,7 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
                   onClick={() => handleNavClick(item.id)}
                   className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl font-semibold text-sm transition-all text-left cursor-pointer ${
                     isActive
-                      ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 shadow-sm'
+                      ? 'bg-red-700 text-white border border-red-800 shadow-sm'
                       : 'text-indigo-500 hover:bg-slate-800/60 hover:text-slate-200'
                   }`}
                 >
@@ -115,7 +115,7 @@ export default function Sidebar({ view, setView, onOpenCreate, user, onLogout, i
         </div>
 
         {/* User Footer Profile */}
-        <div className="p-4 border-t border-slate-800 bg-slate-900/50">
+        <div className="p-4 border-t border-slate-800 bg-red-700">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-3 overflow-hidden">
               <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-600 to-indigo-400 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-sm">
