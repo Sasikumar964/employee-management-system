@@ -1,4 +1,4 @@
-name: Deploy Employee Backend
+name: Deploy Employee Application
 
 on:
   push:
@@ -24,28 +24,55 @@ jobs:
           script: |
             set -e
 
+            echo "================================"
             echo "Starting deployment..."
+            echo "================================"
 
             cd /var/www/employee
 
             echo "Pulling latest code..."
             git pull origin main
 
-            cd backend
+            echo "--------------------------------"
+            echo "Deploying backend..."
+            echo "--------------------------------"
 
-            echo "Installing dependencies..."
+            cd /var/www/employee/backend
+
+            echo "Installing backend dependencies..."
             npm ci
 
             echo "Running database migrations..."
             npm run migrate
 
-            echo "Restarting PM2..."
+            echo "Restarting backend with PM2..."
             pm2 restart employee-backend
 
             echo "Saving PM2 process..."
             pm2 save
 
-            echo "Checking PM2..."
+            echo "--------------------------------"
+            echo "Deploying frontend..."
+            echo "--------------------------------"
+
+            cd /var/www/employee/frontend
+
+            echo "Installing frontend dependencies..."
+            npm ci
+
+            echo "Building frontend..."
+            npm run build
+
+            echo "--------------------------------"
+            echo "Checking services..."
+            echo "--------------------------------"
+
             pm2 status
 
+            echo "Testing backend..."
+            curl -f http://127.0.0.1:5000/api/health
+
+            echo ""
+            echo "================================"
             echo "Deployment completed successfully!"
+            echo "================================"
